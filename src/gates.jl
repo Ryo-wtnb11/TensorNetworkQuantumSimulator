@@ -113,3 +113,26 @@ function ITensors.op(
     mat[4,4] = conj(a)
     return mat
 end
+
+function ITensors.op(
+    ::OpName"fsim",
+    ::SiteType"S=1/2";
+    θ::Float64 = pi / 2,
+    ϕ::Float64 = pi / 6,
+)
+    a, b, c = cos(θ), -1.0 * im * sin(θ), exp(-1.0 * im * ϕ)
+    mat = [1 0 0 0; 0 a b 0; 0 b a 0; 0 0 0 c]
+    return mat
+end
+
+function ITensors.op(::OpName"SqrtX", ::SiteType"S=1/2";)
+    return (1 / sqrt(2)) * [1 -im; -im 1]
+end
+
+function ITensors.op(::OpName"SqrtY", ::SiteType"S=1/2";)
+    return (1 / sqrt(2)) * [1 -1; 1 1]
+end
+
+function ITensors.op(::OpName"SqrtW", ::SiteType"S=1/2";)
+    return (1 / sqrt(2)) * [1 -sqrt(im); sqrt(-im) 1]
+end
