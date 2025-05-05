@@ -48,6 +48,6 @@ export
     zerostate,
     getnqubits,
     named_grid,
-    sample
-
+    sample,
+    rem_triangular_blocks
 end

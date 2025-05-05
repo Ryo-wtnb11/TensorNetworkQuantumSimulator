@@ -17,6 +17,7 @@ using NamedGraphs:
     neighbors,
     edgeinduced_subgraphs_no_leaves,
     unique_cyclesubgraphs_limited_length
+
 using NamedGraphs.GraphsExtensions:
     src,
     dst,
@@ -35,7 +36,8 @@ using NamedGraphs.GraphsExtensions:
     rem_edge,
     rem_vertex,
     add_edges,
-    rem_vertices
+    rem_vertices,
+    has_vertex
 
 using NamedGraphs.PartitionedGraphs:
     PartitionedGraphs,
