@@ -50,5 +50,6 @@ export
     named_grid,
     sample,
     rem_triangular_blocks,
-    sycamore_53_qubit_grid
+    sycamore_53_qubit_grid,
+    heavy_hexagonal_lattice
 end
