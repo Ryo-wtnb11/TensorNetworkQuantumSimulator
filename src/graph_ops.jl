@@ -103,7 +103,7 @@ function rem_triangular_blocks(g::NamedGraph, nxny::Tuple, blocks::Vector{Tuple{
 end
 
 # Fig .1a of https://www.nature.com/articles/s41586-019-1666-5
-function sycamore_54_qubit_grid()
+function sycamore_53_qubit_grid(;patch::Int64=0)
     nx, ny = 10, 10
     g = named_grid((nx, ny))
     blocks = [
@@ -114,6 +114,11 @@ function sycamore_54_qubit_grid()
     ]
     g = rem_triangular_blocks(g, (nx, ny), blocks)
     g = rem_vertex(g, (4, 3))
+    if patch == 1
+        g = rem_triangular_block(g, (nx, ny), (4, 4), (7, 7), :left)
+    elseif patch == 2
+        g = rem_triangular_block(g, (nx, ny), (5, 4), (8, 7), :right)
+    end
     return g
 end
 

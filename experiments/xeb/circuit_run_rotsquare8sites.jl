@@ -45,8 +45,6 @@ function main()
 
     for (cycle, layer) in enumerate(circuit)
         ψ, ψψ, errors = apply(layer, ψ, ψψ; apply_kwargs, verbose = false)
-        serialize("ψ_$(cycle).jld", ψ)
-        serialize("errors_$(cycle).jld", errors)
     end
 end
 

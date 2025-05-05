@@ -1,4 +1,6 @@
-function random_circuit(g::AbstractGraph, no_cycles::Int)
+using NamedGraphs: NamedGraph
+
+function random_circuit(g::NamedGraph, no_cycles::Int)
     k = maximum(degree(g, v) for v in vertices(g))
     ec = edge_color(g, k)
     layers = []

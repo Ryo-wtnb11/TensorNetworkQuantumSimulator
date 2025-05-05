@@ -49,5 +49,6 @@ export
     getnqubits,
     named_grid,
     sample,
-    rem_triangular_blocks
+    rem_triangular_blocks,
+    sycamore_53_qubit_grid
 end
