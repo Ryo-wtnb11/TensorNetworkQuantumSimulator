@@ -51,5 +51,7 @@ export
     sample,
     rem_triangular_blocks,
     sycamore_53_qubit_grid,
-    heavy_hexagonal_lattice
+    heavy_hexagonal_lattice,
+    heavy_hexagonal_lattice_16sites,
+    heavy_hexagonal_lattice_27sites
 end

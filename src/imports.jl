@@ -37,7 +37,9 @@ using NamedGraphs.GraphsExtensions:
     rem_vertex,
     add_edges,
     rem_vertices,
-    has_vertex
+    has_vertex,
+    add_vertices,
+    add_edges
 
 using NamedGraphs.PartitionedGraphs:
     PartitionedGraphs,

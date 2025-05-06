@@ -23,6 +23,21 @@ function heavy_hexagonal_lattice(nx::Int64, ny::Int64)
     return g
 end
 
+function heavy_hexagonal_lattice_16sites()
+    g = heavy_hexagonal_lattice(1,1)
+    g = add_vertices(g, [(0, 3), (3, 4), (6, 3), (3, 0)])
+    g = add_edges(g, [NamedEdge((0, 3) => (1, 3)), NamedEdge((3, 4) => (3, 3)), NamedEdge((6, 3) => (5, 3)), NamedEdge((3, 0) => (3, 1))])
+    return g
+end
+
+function heavy_hexagonal_lattice_27sites()
+    g = heavy_hexagonal_lattice(2,1)
+    g = add_vertices(g, [(0, 3), (3, 4), (7, 4), (10, 1), (7, 0), (3, 0)])
+    g = add_edges(g, [NamedEdge((0, 3) => (1, 3)), NamedEdge((3, 4) => (3, 3)), NamedEdge((7, 3) => (7, 4)), NamedEdge((10, 1) => (9, 1)), NamedEdge((7, 0) => (7, 1)), NamedEdge((3, 0) => (3, 1))])
+    return g
+end
+
+
 function lieb_lattice(nx::Int64, ny::Int64; periodic = false)
     @assert (!periodic && isodd(nx) && isodd(ny)) || (periodic && iseven(nx) && iseven(ny))
     g = named_grid((nx, ny); periodic)

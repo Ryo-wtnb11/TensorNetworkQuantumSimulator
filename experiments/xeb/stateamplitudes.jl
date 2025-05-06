@@ -8,12 +8,13 @@ const TN = TensorNetworkQuantumSimulator
 using ITensorNetworks: ITensorNetworks, siteinds, Algorithm
 const ITN = ITensorNetworks
 
+using ITensors
+
 using NamedGraphs: NamedEdge
 using NamedGraphs.GraphsExtensions: add_vertices, add_edges
 
 using Statistics
 
-using ITensors
 
 using StatsBase
 

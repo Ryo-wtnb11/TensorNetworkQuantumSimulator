@@ -231,7 +231,23 @@ function ITensorNetworks.region_scalar(bpc::BeliefPropagationCache, verts::Vecto
         seq = contraction_sequence(ts; alg = "optimal")
         return contract(ts; sequence = seq)[]
     end
-    error("Contractions involving more than 2 partitions not currently supported")
+    # This is the case where we have 3 partitions.
+    if length(partitions) == 3
+        p1, p2, p3 = partitions
+        # This check is to ensure that vertices are connected in a chain in ordered as p1, p2, p3.
+        if (parent(p2) ∉ neighbors(partitioned_graph(bpc), parent(p1)) ||
+            parent(p2) ∉ neighbors(partitioned_graph(bpc), parent(p3)))
+            error(
+                "Only contractions involving neighboring partitions are currently supported",
+            )
+        end
+        ms = incoming_messages(bpc, partitions)
+        local_tensors = factors(bpc, partitions)
+        ts = [ms; local_tensors]
+        seq = contraction_sequence(ts; alg = "optimal")
+        return contract(ts; sequence = seq)[]
+    end
+    error("Contractions involving more than 3 partitions not currently supported")
     return nothing
 end
 
