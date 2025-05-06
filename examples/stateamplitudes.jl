@@ -6,7 +6,7 @@ using TensorNetworkQuantumSimulator
 const TN = TensorNetworkQuantumSimulator
 
 using ITensorNetworks: ITensorNetworks, siteinds, Algorithm
-
+const ITN = ITensorNetworks
 using NamedGraphs.NamedGraphGenerators: named_grid
 using Statistics
 

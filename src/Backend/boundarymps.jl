@@ -937,29 +937,3 @@ function delete_partitionpair_messages!(bmpsc::BoundaryMPSCache, partitionpair::
     pes = planargraph_sorted_partitionedges(bmpsc, partitionpair)
     return delete_messages!(bmpsc, pes)
 end
-
-# added
-function ITensorNetworks.vertex_scalars(
-    ψIψ::BoundaryMPSCache,
-    pvs=partitionvertices(ψIψ);
-    kwargs...,
-)
-    return map(pv -> region_scalar(ψIψ, pv; kwargs...), pvs)
-end
-
-function ITensorNetworks.edge_scalars(
-    ψIψ::BoundaryMPSCache,
-    pes=partitionedges(ψIψ);
-    kwargs...,
-)
-    return map(pe -> region_scalar(ψIψ, pe; kwargs...), pes)
-end
-
-function ITensorNetworks.scalar_factors_quotient(ψIψ::BoundaryMPSCache)
-    return vertex_scalars(ψIψ), edge_scalars(ψIψ)
-end
-
-function ITensors.scalar(ψIψ::BoundaryMPSCache)
-    numers, denoms = scalar_factors_quotient(ψIψ)
-    return prod(numers) / prod(denoms)
-end
