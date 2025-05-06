@@ -6,6 +6,7 @@ using TensorNetworkQuantumSimulator
 const TN = TensorNetworkQuantumSimulator
 
 using ITensorNetworks: ITensorNetworks, siteinds, Algorithm
+const ITN = ITensorNetworks
 
 using NamedGraphs.NamedGraphGenerators: named_grid
 using Statistics
@@ -50,7 +51,6 @@ function main()
         end
 
         bp_cache = build_bp_cache(copy(pψ))
-        bp_cache = updatecache(bp_cache)
 
         f = scalar(Algorithm("bp"), bp_cache)
         p_bp = f*conj(f)
@@ -60,7 +60,6 @@ function main()
         p_loop = f*conj(f)
 
         bmpsc = build_boundarymps_cache(copy(pψ), maxlinkdim(pψ)*2)
-        bmpsc = updatecache(bmpsc)
         f = scalar(bmpsc)
         p_bmps = f*conj(f)
 

@@ -22,19 +22,7 @@ Random.seed!(1734)
 using Serialization
 
 function main()
-    # 16 sites
-    # g = TN.heavy_hexagonal_lattice(1,1)
-    # g = add_vertices(g, [(0, 3), (3, 4), (6, 3), (3, 0)])
-    # g = add_edges(g, [NamedEdge((0, 3) => (1, 3)), NamedEdge((3, 4) => (3, 3)), NamedEdge((6, 3) => (5, 3)), NamedEdge((3, 0) => (3, 1))])
 
-    # g = TN.heavy_hexagonal_lattice(2,1)
-    # g = add_vertices(g, [(0, 3), (3, 4), (7, 4), (10, 1), (7, 0), (3, 0)])
-    # g = add_edges(g, [NamedEdge((0, 3) => (1, 3)), NamedEdge((3, 4) => (3, 3)), NamedEdge((7, 3) => (7, 4)), NamedEdge((10, 1) => (9, 1)), NamedEdge((7, 0) => (7, 1)), NamedEdge((3, 0) => (3, 1))])
-
-    g = TN.heavy_hexagonal_lattice(1,1)
-    s = siteinds("S=1/2", g)
-    ψ = ITN.random_tensornetwork(ComplexF64, s; link_space = 2)
-    ψ, ψψ = normalize(ψ)
 
     n = 1 # You can change this to sample multiple amplitudes
 
