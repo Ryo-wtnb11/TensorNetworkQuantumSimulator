@@ -93,9 +93,9 @@ end
 """
     expect(ψIψ::AbstractBeliefPropagationCache, obs::Tuple; kwargs...)
 
-Foundational expectation function for a given (norm) cache network with an observable. 
+Foundational expectation function for a given (norm) cache network with an observable.
 This can be a `BeliefPropagationCache` or a `BoundaryMPSCache`.
-Valid observables are tuples of the form `(op, qinds)` or `(op, qinds, coeff)`, 
+Valid observables are tuples of the form `(op, qinds)` or `(op, qinds, coeff)`,
 where `op` is a string or vector of strings, `qinds` is a vector of indices, and `coeff` is a coefficient (default 1.0).
 """
 function ITensorNetworks.expect(
@@ -110,8 +110,6 @@ function ITensorNetworks.expect(
 
     ψOψ = insert_observable(ψIψ, obs)
 
-    numerator = region_scalar(ψOψ, [(v, "ket") for v in vs])
-    denominator = region_scalar(ψIψ, [(v, "ket") for v in vs])
     numerator = region_scalar(ψOψ, [(v, "ket") for v in vs])
     denominator = region_scalar(ψIψ, [(v, "ket") for v in vs])
 
